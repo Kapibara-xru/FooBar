@@ -1,21 +1,23 @@
 package main
 
-import "fmt"
-import "os" 
+import (
+	"fmt"
+	"os"
+)
 
-func checkModThree(a int) string{
-	if(a % 3 == 0) {
-		return "Bar"	
+func checkModThree(a int) string {
+	if a%3 == 0 {
+		return "Bar"
 	} else {
-		return "Foo"	
+		return "Foo"
 	}
 }
 
-func numbers(a int, b int) bool{
-	if (a > b) {
-		return true	
+func numbers(a int, b int) bool {
+	if a > b {
+		return true
 	}
-	fmt.Printf("%-3d %s\n",a,checkModThree(a))
+	fmt.Printf("%-3d %s\n", a, checkModThree(a))
 	return numbers(a+1, b)
 }
 
@@ -25,10 +27,10 @@ func main() {
 	fmt.Print("Введите число: ")
 	fmt.Fscan(os.Stdin, &num)
 
-	if(num < 1) {
+	if num < 1 {
 		fmt.Println("Ошибка! Введите число больше нуля!")
-		os.Exit(0)		
+		os.Exit(0)
 	}
-	
+
 	numbers(1, num)
 }
